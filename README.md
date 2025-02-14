@@ -1,28 +1,28 @@
-# cpuminer-scash
+# cpuminer-scashx
 
-Cpuminer-scash is a free, high performance, open source, cross platform CPU miner for Scash.
+cpuminer-scashx is a free, high performance, open source, cross platform CPU miner for ScashX.
 
-Cpuminer-scash has been tested on Linux, Windows, macOS and on Intel/AMD x86-64 and ARM64 processors.
+cpuminer-scashx has been tested on Linux, Windows, macOS and on Intel/AMD x86-64 and ARM64 processors.
 
-Scash uses RandomX 1.2.1 as it's mining algorithm, as specified here: https://github.com/scash-project/sips/blob/main/scash-protocol-spec.md
+ScashX uses RandomX 1.2.1 as it's mining algorithm, as specified here: https://github.com/scashx/sips/blob/main/scashx-protocol-spec.md
 
 ## Features
 
 Cpuminer supports:
-- Solo mining with Scash node (RPC getblocktemplate)
+- Solo mining with ScashX node (RPC getblocktemplate)
 - Mining pools (Stratum V1 protocol)
 - Hiveon OS
 
 ## Download
-- Binary releases: https://github.com/scash-project/cpuminer-scash/releases
+- Binary releases: https://github.com/scashx/cpuminer-scashx/releases
 - Build from source (recommended)
 
 ## Hiveon OS instructions
 
 Create a new flight sheet, select 'Custom miner', click 'Setup miner config' and then enter the following:
-- Miner name: `cpuminer_scash`
+- Miner name: `cpuminer_scashx`
 - Installation URL: Copy the URL of the latest hiveon binary in Github releases
-- Hash algorithm: `----` (`randomx` and `randomscash` can also be selected)
+- Hash algorithm: `----` (`randomx` and `randomscashx` can also be selected)
 - Pool URL: `stratum+tcps://ADDRESS:PORT` (obtain address and port from mining pool)
 - Wallet and worker template: `%WAL%.%WORKER_NAME%`
 - Pass: `x` (or empty)
@@ -33,7 +33,7 @@ Create a new flight sheet, select 'Custom miner', click 'Setup miner config' and
 Cpuminer depends on the following libraries:
 - libcurl, https://curl.se/libcurl/
 - jansson, https://github.com/akheron/jansson (jansson is included locally)
-- RandomX, https://github.com/scash-project/RandomX (RandomX is included as a Git submodule)
+- RandomX, https://github.com/tevador/RandomX (RandomX is included as a Git submodule)
 
 ## Linux
 
@@ -48,8 +48,8 @@ sudo apt install autoconf pkg-config g++ make libcurl4-openssl-dev
 
 ### Build instructions
 ```
-git clone https://github.com/scash-project/cpuminer-scash --recursive
-cd cpuminer-scash
+git clone https://github.com/scashx/cpuminer-scashx --recursive
+cd cpuminer-scashx
 ./autogen.sh
 ./configure
 make
@@ -74,14 +74,14 @@ Help message and options:
 ./minerd -h
 ```
 
-Solo mine on 4 cpu threads, connected to a local Scash node:
+Solo mine on 4 cpu threads, connected to a local ScashX node:
 ```
-./minerd -o 127.0.0.1:8342 -O username:password -t 4 --coinbase-addr=YOUR_SCASH_ADDRESS
+./minerd -o 127.0.0.1:8342 -O username:password -t 4 --coinbase-addr=YOUR_SCASHX_ADDRESS
 ```
 
 Solo mine using large memory pages and disable thread binding:
 ```
-./minerd -o 127.0.0.1:8342 -O username:password -t 4 --coinbase-addr=YOUR_SCASH_ADDRESS --largepages --no-affinity
+./minerd -o 127.0.0.1:8342 -O username:password -t 4 --coinbase-addr=YOUR_SCASHX_ADDRESS --largepages --no-affinity
 ```
 
 Mine at a pool using large memory pages and print out networking and debugging messages:
@@ -117,8 +117,8 @@ To build a native Windows application which must run in a MSYS2 terminal.
 
 In MSYS2 terminal:
 ```
-git clone https://github.com/scash-project/cpuminer-scash --recursive
-cd cpuminer-scash
+git clone https://github.com/scashx/cpuminer-scashx --recursive
+cd cpuminer-scashx
 ./autogen.sh
 LIBCURL="-lcurl.dll" ./configure
 make
@@ -144,8 +144,8 @@ make install
 
 Now build the miner using this new static version of libcurl.
 ```
-git clone https://github.com/scash-project/cpuminer-scash --recursive
-cd cpuminer-scash
+git clone https://github.com/scashx/cpuminer-scashx --recursive
+cd cpuminer-scashx
 ./autogen.sh
 LIBCURL=`pkg-config --static --libs libcurl` LDFLAGS="-static -static-libgcc" ./configure CFLAGS="-DCURL_STATICLIB"
 make
@@ -160,9 +160,9 @@ Help message and options:
 ./minerd.exe -h
 ```
 
-Solo mine connected to a local Scash node:
+Solo mine connected to a local ScashX node:
 ```
-./minerd.exe -o 127.0.0.1:8342 -O username:password --coinbase-addr=YOUR_SCASH_ADDRESS
+./minerd.exe -o 127.0.0.1:8342 -O username:password --coinbase-addr=YOUR_SCASHX_ADDRESS
 ```
 
 Mine at a pool using large memory pages:

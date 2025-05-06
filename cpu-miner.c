@@ -686,7 +686,7 @@ static bool gbt_work_decode(const json_t *val, struct work *work)
 	char epochSeedString[100];
 	memset(epochSeedString, 0, sizeof(epochSeedString));
 	uint32_t nEpoch = curtime/epochDuration;
-	sprintf(epochSeedString, "Scash/RandomX/Epoch/%d", nEpoch);
+	sprintf(epochSeedString, "ScashX/RandomX/Epoch/%d", nEpoch);
 	sha256d(work->randomx_seed_hash, epochSeedString, strlen(epochSeedString));
 	// !RandomX END
 
@@ -1176,7 +1176,7 @@ static void stratum_gen_work(struct stratum_ctx *sctx, struct work *work)
 	memset(epochSeedString, 0, sizeof(epochSeedString));
 	uint32_t curtime = be32dec(&work->data[17]);
 	uint32_t nEpoch = curtime/(7 * 24 * 60 * 60);
-	sprintf(epochSeedString, "Scash/RandomX/Epoch/%d", nEpoch);
+	sprintf(epochSeedString, "ScashX/RandomX/Epoch/%d", nEpoch);
 	sha256d(work->randomx_seed_hash, epochSeedString, strlen(epochSeedString));
 	// !RandomX END
 
@@ -1329,7 +1329,7 @@ static void *miner_thread(void *userdata)
 
 			// Benchmarking requires a key to be set manually
 			if (opt_benchmark) {
-				const char *epochSeedString = "Scash/RandomX/Epoch/2825";
+				const char *epochSeedString = "ScashX/RandomX/Epoch/2825";
 				sha256d(work.randomx_seed_hash, epochSeedString, strlen(epochSeedString));
 
 #if 0

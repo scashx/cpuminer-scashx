@@ -1,4 +1,4 @@
 [submodule "RandomX"]
 	path = RandomX
-	url = https://github.com/scashnetwork/RandomX.git
-	branch = scash
+	url = https://github.com/scashx/RandomX.git
+	branch = scashx

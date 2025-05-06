@@ -28,7 +28,7 @@ jobs:
           fi
           RELEASE_NAME=${RELEASE_NAME#v}
           RELEASE_NAME=${RELEASE_NAME//\//-}  # Replace slashes with hyphens
-          echo "RELEASE_FOLDER=cpuminer-scash-$RELEASE_NAME-$TARGET_ARCH" >> "$GITHUB_ENV"
+          echo "RELEASE_FOLDER=cpuminer-scashx-$RELEASE_NAME-$TARGET_ARCH" >> "$GITHUB_ENV"
           echo "RELEASE_NAME=$RELEASE_NAME" >> "$GITHUB_ENV"
 
       - name: Checkout
@@ -70,14 +70,14 @@ jobs:
 
       - name: Package Hiveon artifact
         run: |
-          cp -r hiveon cpuminer_scash
-          cp -a minerd cpuminer_scash/cpuminer_scash_bin
-          cd cpuminer_scash
+          cp -r hiveon cpuminer_scashx
+          cp -a minerd cpuminer_scashx/cpuminer_scashx_bin
+          cd cpuminer_scashx
           envsubst <h-manifest-template.conf >h-manifest.conf
           rm h-manifest-template.conf
           cd ..
-          ARTIFACT_FILENAME=cpuminer_scash-${RELEASE_NAME}_hiveon.tar.gz
-          tar -czvf $ARTIFACT_FILENAME cpuminer_scash
+          ARTIFACT_FILENAME=cpuminer_scashx-${RELEASE_NAME}_hiveon.tar.gz
+          tar -czvf $ARTIFACT_FILENAME cpuminer_scashx
           echo "ARTIFACT_FILENAME=$ARTIFACT_FILENAME" >> "$GITHUB_ENV"
 
       - name: Upload Hiveon artifact

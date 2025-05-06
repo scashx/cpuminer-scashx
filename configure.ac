@@ -1,4 +1,4 @@
-AC_INIT([cpuminer-scash],[3.0.9])
+AC_INIT([cpuminer-scashx],[1.0.0])
 
 AC_PREREQ([2.59c])
 AC_CANONICAL_TARGET

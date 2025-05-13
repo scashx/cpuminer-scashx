@@ -1,4 +1,4 @@
-name: 'Build (and Publish for tagged release)'
+name: 'Build (and Publish for tagged release) v2'
 on:
   push:
   pull_request:

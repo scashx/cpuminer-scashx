@@ -2,20 +2,48 @@
 
 cpuminer-scashx is a free, high performance, open source, cross platform CPU miner for ScashX.
 
-cpuminer-scashx has been tested on Linux and on Intel/AMD x86-64 and ARM64 processors.
+cpuminer-scashx has been tested on Linux and Windows on Intel/AMD x86-64 and ARM64 processors.
 
 ScashX uses RandomX 1.2.1 as its mining algorithm, as specified here: (https://github.com/scashx/scashx/blob/scashx_master/doc/scashx-protocol-spec.md)
 
 ## Features
 
 Cpuminer supports:
-- Solo mining with ScashX node (RPC getblocktemplate)
-- Mining pools (Stratum V1 protocol)
-- Hiveon OS
+* Solo mining with ScashX node (RPC getblocktemplate)
+* Mining pools (Stratum V1 protocol)
+* Hiveon OS
 
-## Download
-- Binary releases: https://github.com/scashx/cpuminer-scashx/releases
-- Build from source (recommended)
+# Availability and Building
+## Binary Releases (Recommended for most users)
+Pre-compiled binaries are the quickest way to set up and run cpuminer-scashx.
+
+**Download:** https://github.com/scashx/cpuminer-scashx/releases
+
+## Supported Platforms for Binaries:
+* **Linux** (`minerd`)
+* **Windows** (`minerd.exe`)
+  * **Windows WSL** (The Linux binaries can also be run on [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/about))
+* **Currently Unsupported**
+  * maxOS+
+  
+# Building from Source
+If you prefer to compile cpuminer-scashx yourself see build instructions below. Building from source typically takes less than a minute, depending on your system's performance.
+
+## Supported Platforms for Building:
+* **Linux:** (Ubuntu is recommended, although other Unix-like distributions may also work).
+* **WSL on Windows:** Users can build the Linux version from source by running an Ubuntu environment within WSL and following the Linux build instructions (below).
+
+## Platform-Specific Execution Information
+Sample commands to execute the miner:
+* **Windows:**
+  * From windows prompt:.\minerd -o 127.0.0.1:8352 -O user:password --coinbase-addr=[your address] -t [number of threads]
+* **Linux / WSL:**
+  * ./minerd -o 127.0.0.1:8352 -O user:password --coinbase-addr=[your address] -t [number of threads]
+## Optimising Mining
+Vary the number of threads to identify the best hashrate on your hardware. The following options may also improve mining performance depending on platform. Check `minerd --help` for further information on options:
+* --largepages
+* --no-affinity
+* --background
 
 ## Hiveon OS instructions
 
